@@ -6,8 +6,8 @@ static const unsigned int gappx     = 6;        /* gap pixel between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Hack:size=13" };
-static const char dmenufont[]       = "Hack:size=13";
+static const char *fonts[]          = { "Terminess Powerline:size=14" };
+static const char dmenufont[]       = "Terminess Powerline:size=14";
 static const char col_fg[]          = "#f8f8f2";
 static const char col_bg[]          = "#282a36";
 static const char col_border[]      = "#f8f8f2";
@@ -61,16 +61,18 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
+static const char *lockscreen[] = { "betterlockscreen", "--lock", "blur", NULL };
 static const char *passmenu[] = { "passmenu", "--type", NULL };
-static const char *filemanager[] = {"st", "-e", "vifm" };
+static const char *filemanager[] = {"st", "-e", "vifm", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-    { MODKEY|ControlMask,           XK_p,      spawn,          {.v = passmenu } },
-    { MODKEY|ControlMask,           XK_f,      spawn,          {.v = filemanager } },
+	{ MODKEY|ControlMask,           XK_l,      spawn,          {.v = lockscreen } },
+	{ MODKEY|ControlMask,           XK_p,      spawn,          {.v = passmenu } },
+	{ MODKEY|ControlMask,           XK_f,      spawn,          {.v = filemanager } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,             XK_Return, spawn,          {.v = termcmd } },
-    { MODKEY,                       XK_z,  togglescratch,  {.v = scratchpadcmd } },
+	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_z,      togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
