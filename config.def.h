@@ -6,8 +6,8 @@ static const unsigned int gappx     = 6;        /* gap pixel between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Terminess Powerline:size=14" };
-static const char dmenufont[]       = "Terminess Powerline:size=14";
+static const char *fonts[]          = { "Iosevka:size=14" };
+static const char dmenufont[]       = "Iosevka:size=14";
 static char normbgcolor[]           = "#f8f8f2";
 static char normbordercolor[]       = "#282a36";
 static char normfgcolor[]           = "#f8f8f2";
