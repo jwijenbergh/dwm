@@ -8,16 +8,16 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Terminess Powerline:size=14" };
 static const char dmenufont[]       = "Terminess Powerline:size=14";
-static const char col_fg[]          = "#f8f8f2";
-static const char col_bg[]          = "#282a36";
-static const char col_border[]      = "#f8f8f2";
-static const char col_sel_fg[]      = "#282a36";
-static const char col_sel_bg[]      = "#5af78e";
-static const char col_sel_border[]  = "#5af78e";
-static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_fg, col_bg, col_border },
-	[SchemeSel]  = { col_sel_fg, col_sel_bg,  col_sel_border  },
+static char normbgcolor[]           = "#f8f8f2";
+static char normbordercolor[]       = "#282a36";
+static char normfgcolor[]           = "#f8f8f2";
+static char selfgcolor[]            = "#282a36";
+static char selbordercolor[]        = "#5af78e";
+static char selbgcolor[]            = "#5af78e";
+static char *colors[][3] = {
+       /*               fg           bg           border   */
+       [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
+       [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
 };
 
 /* tagging */
@@ -57,7 +57,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_bg, "-nf", col_fg, "-sb", col_sel_bg, "-sf", col_sel_fg, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
